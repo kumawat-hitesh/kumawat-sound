@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom"; // Use NavLink instead of Link
 import "./style.css";
 import logoImage from "../../assets/kumawat-logo.png";
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -9,53 +10,107 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Close the menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const navLinks = document.querySelector(".nav-links");
+      const hamburger = document.querySelector(".hamburger");
+
+      if (
+        isMenuOpen &&
+        !navLinks.contains(event.target) &&
+        !hamburger.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">
+        <NavLink to="/">
           <img src={logoImage} alt="Logo" className="logo-image" />
-        </Link>
+        </NavLink>
       </div>
-      <button className="hamburger" onClick={toggleMenu}>
+      <button
+        className={`hamburger ${isMenuOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
+      {/* Overlay for closing the menu */}
+      <div className={`overlay ${isMenuOpen ? "active" : ""}`}></div>
       <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
         <li>
-          <Link to="/" onClick={toggleMenu}>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={toggleMenu}
+          >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/about" onClick={toggleMenu}>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={toggleMenu}
+          >
             About Us
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/weddings" onClick={toggleMenu}>
+          <NavLink
+            to="/weddings"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={toggleMenu}
+          >
             Weddings
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/events" onClick={toggleMenu}>
+          <NavLink
+            to="/events"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={toggleMenu}
+          >
             Events
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/videos" onClick={toggleMenu}>
+          <NavLink
+            to="/videos"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={toggleMenu}
+          >
             Videos
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/inventory" onClick={toggleMenu}>
+          <NavLink
+            to="/inventory"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={toggleMenu}
+          >
             Inventory
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/contact" onClick={toggleMenu}>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={toggleMenu}
+          >
             Contact Us
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>
