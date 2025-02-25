@@ -19,15 +19,15 @@
 }
 
 .logo-image {
-  height: 40px; /* Adjust the height as needed */
-  width: auto; /* Maintain aspect ratio */
+  height: 40px;
+  width: auto;
 }
 
 /* Navigation Links */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem; /* Reduced gap for better spacing */
+  gap: 1rem;
 }
 
 .nav-links li {
@@ -38,24 +38,19 @@
   position: relative;
   color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 15px;
   transition: color 0.5s ease;
   padding: 0 10px;
 }
 
-/* Hover effect for desktop */
+/* Desktop Hover Effects */
 @media (min-width: 769px) {
   .nav-links a {
-    position: relative;
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.5s ease;
-    padding: 0 10px;
+    padding: 5px 10px;
   }
 
   .nav-links a:hover {
-    color: red; /* Change to your preferred hover color */
+    color: red;
   }
 
   .nav-links a:after,
@@ -70,8 +65,6 @@
   }
 
   .nav-links a:after {
-    width: 0%;
-    height: 0%;
     top: 0;
     left: 0;
     border-top: 1px solid transparent;
@@ -79,8 +72,6 @@
   }
 
   .nav-links a:before {
-    width: 0%;
-    height: 0%;
     right: 0;
     bottom: 0;
     border-bottom: 1px solid transparent;
@@ -95,12 +86,12 @@
   }
 }
 
-/* Active link style */
+/* Active Link */
 .nav-links a.active {
-  color: red; /* Highlight color for active link */
+  color: red;
 }
 
-/* Hamburger Menu (Hidden by Default) */
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -108,7 +99,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1001; /* Ensure it's above the menu */
+  z-index: 1001;
 }
 
 .hamburger span {
@@ -118,46 +109,39 @@
   transition: all 0.3s ease;
 }
 
-/* Transform hamburger into "X" */
+/* Hamburger Animation */
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
-
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Overlay for closing the menu */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent; /* Semi-transparent black */
-  z-index: 999; /* Below the menu but above everything else */
-  display: none; /* Hidden by default */
-}
-
-.overlay.active {
-  display: block; /* Show when menu is open */
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .nav-links {
-    gap: 1.5rem; /* Further reduce gap for tablets */
-  }
-}
-
+/* Mobile Styles */
 @media (max-width: 768px) {
+  /* Overlay - Mobile Only */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+
+  /* Navbar Layout */
   .navbar {
-    justify-content: space-between; /* Align logo and hamburger to edges */
-    padding: 0 1rem; /* Add padding for better spacing */
+    justify-content: space-between;
+    padding: 0 1rem;
   }
 
   .hamburger {
@@ -165,50 +149,68 @@
     margin: 10px;
   }
 
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%; /* Start off-screen to the right */
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.9);
-    width: 70%; /* Adjust width as needed */
-    height: 100vh;
-    gap: 0;
-    transition: right 0.3s ease;
-    z-index: 1000; /* Ensure it's above the overlay */
-    overflow-y: auto; /* Enable vertical scrolling */
-  }
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    /* Navbar Layout */
+    .navbar {
+      justify-content: center; /* Center logo */
+      position: relative; /* For absolute positioning of hamburger */
+      padding: 0 1rem;
+    }
 
-  .nav-links.active {
-    right: 0; /* Slide in from the right */
-  }
+    /* Hamburger positioning */
+    .hamburger {
+      display: flex;
+      position: absolute;
+      right: 1rem; /* Space from right edge */
+      margin: 0;
+    }
 
-  .nav-links li {
-    padding: 1rem 0;
-  }
+    /* Rest of mobile styles remain the same */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
 
-  .nav-links a {
-    padding: 1rem;
-    display: block;
-  }
+    .overlay.active {
+      display: block;
+    }
 
-  /* Disable hover effects in mobile mode */
-  .nav-links a:hover {
-    color: white; /* Reset hover color */
-  }
-}
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.9);
+      width: 70%;
+      height: 100vh;
+      gap: 0;
+      transition: right 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+    }
 
-@media (max-width: 480px) {
-  .logo-image {
-    height: 30px; /* Smaller logo for mobile */
-  }
+    .nav-links.active {
+      right: 0;
+    }
 
-  .hamburger span {
-    width: 20px; /* Smaller hamburger icon for mobile */
-    height: 2px;
-  }
+    .nav-links li {
+      padding: 1rem 0;
+    }
 
-  .nav-links {
-    width: 80%; /* Wider menu for smaller screens */
+    .nav-links a {
+      padding: 1rem;
+      display: block;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
   }
 }
