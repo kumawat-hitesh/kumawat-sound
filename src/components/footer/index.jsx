@@ -40,10 +40,10 @@ export default function Footer() {
 
         {/* Address Section */}
         <div className="footer-section">
-          <h3 className="section-title">Meeting Place</h3>
+          <h3 className="section-title">Location</h3>
           <div className="address">
-            <p>Kumawat Sound</p>
-            <p>JK Mod, Kankroli, Rajsamand Rajasthan - 313324, India</p>
+            <i class="bi bi-geo-alt-fill"></i>
+            <p> JK Mod, Kankroli, Rajsamand, 313324, Rajasthan, India</p>
           </div>
         </div>
       </div>
