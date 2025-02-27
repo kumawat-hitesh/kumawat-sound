@@ -1,19 +1,35 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// Components
+import Loader from "./components/loader";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+// Pages
 import Home from "./pages/home";
-import Service from "./pages/services";
 
 function App() {
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    // Match this with loader exit animation duration
+    const timer = setTimeout(() => setShowContent(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Service />} />
-        {/* Add other routes here if needed */}
-      </Routes>
-      <Footer />
+      <Loader />
+
+      {showContent && (
+        <div className="main-content">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* Add other routes */}
+          </Routes>
+          <Footer />
+        </div>
+      )}
     </Router>
   );
 }
