@@ -10,14 +10,14 @@ const Loader = () => {
   useEffect(() => {
     const loadTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(loadTimer);
   }, []);
 
   useEffect(() => {
     if (!isLoading) {
-      const exitTimer = setTimeout(() => setIsVisible(false), 1000);
+      const exitTimer = setTimeout(() => setIsVisible(false), 2000);
       return () => clearTimeout(exitTimer);
     }
   }, [isLoading]);

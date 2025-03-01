@@ -1,21 +1,56 @@
-import { motion } from "framer-motion";
+import React from "react";
 import "./style.css";
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <motion.section
-      className="hero"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <div className="hero-content">
-        <h1>
-          Transform Your Events with <span>Professional Sound & Lights</span>
-        </h1>
-        <p>Concerts • Weddings • Corporate Events • Private Parties</p>
-        <button className="cta-button">Book Now</button>
-      </div>
-    </motion.section>
+    <div className="container">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-content">
+          <h1>Welcome To Kumawat Sound India!</h1>
+          <div className="type-line">
+            Transforming ordinary events into extraordinary experiences
+          </div>
+          <div className="type-line">
+            Expert engineers ensuring flawless sound and visual effects
+          </div>
+          <div className="type-line">
+            Advanced technology for immersive event experiences
+          </div>
+          <div className="type-line">
+            High-quality sound systems for crystal-clear audio
+          </div>
+          <div className="type-line">
+            Custom setups for concerts, weddings, and shows
+          </div>
+          <div className="type-line">
+            Professional audio and lighting for all events
+          </div>
+        </div>
+      </section>
+
+      {/* Customizable Sections */}
+      <section className="section section-dark">
+        <h2 className="section-title">Our Services</h2>
+        {/* Add your content here */}
+      </section>
+
+      <section className="section section-light">
+        <h2 className="section-title">Event Portfolio</h2>
+        {/* Add your content here */}
+      </section>
+
+      <section className="section section-dark">
+        <h2 className="section-title">Technical Specs</h2>
+        {/* Add your content here */}
+      </section>
+
+      <section className="section section-light">
+        <h2 className="section-title">Contact Us</h2>
+        {/* Add your content here */}
+      </section>
+    </div>
   );
-}
+};
+
+export default HomePage;

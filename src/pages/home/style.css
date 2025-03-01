@@ -1,34 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+/* Hero Section */
 .hero {
   height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../../public/hero-bg.jpg") center/cover fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), url("") center/cover);
+  text-align: center;
+  color: #ffffff8a;
+  font-family: "Times New Roman", Times, serif;
+  padding: 0 20px; /* Added padding for smaller screens */
 }
 
-.hero-content {
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgb(255, 0, 0);
+  animation: typing 10s steps(40, end) infinite,
+    blink-caret 0.75s step-end infinite;
+  opacity: 0.6;
+  display: inline-block;
+  width: 0;
+}
+
+/* Typing animation */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Cursor blink */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(255, 0, 0);
+  }
+}
+
+/* Fade-in lines */
+.type-line {
+  font-family: "Times New Roman", Times, serif;
+  line-height: 3rem;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  color: #ffffff7b;
+}
+
+.type-line:nth-child(2) {
+  animation-delay: 1s;
+}
+.type-line:nth-child(3) {
+  animation-delay: 2s;
+}
+.type-line:nth-child(4) {
+  animation-delay: 3s;
+}
+.type-line:nth-child(5) {
+  animation-delay: 4s;
+}
+.type-line:nth-child(6) {
+  animation-delay: 5s;
+}
+.type-line:nth-child(7) {
+  animation-delay: 6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content Sections */
+.section {
+  padding: 5rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center; /* Center-align text for smaller screens */
+}
+
+.section-dark {
+  background: #1a1a1a;
+  color: white;
+}
+
+.section-light {
+  background: #f9f9f9;
+  color: #333;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+/* Responsive Design */
+/* Desktop: 1024px - 1200px */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 3.5rem; /* Slightly smaller for desktop */
+    animation: typing 8s steps(35, end) infinite,
+      blink-caret 0.75s step-end infinite;
+  }
+
+  .type-line {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+  }
 }
 
-.hero span {
-  color: var(--primary);
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-content h1 {
+    font-size: 2.5rem; /* Smaller for tablets */
+    animation: typing 7s steps(30, end) infinite,
+      blink-caret 0.75s step-end infinite;
+  }
+
+  .type-line {
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem; /* Smaller section titles for tablets */
+  }
+
+  .section {
+    padding: 4rem 1.5rem; /* Adjusted padding for tablets */
+  }
 }
 
-.cta-button {
-  padding: 0.75rem 2rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+/* Mobile Devices: max-width 767px */
+@media (max-width: 767px) {
+  .hero-content h1 {
+    height: 1em; /* Smaller height for mobile */
+    font-size: 1.5rem; /* Smaller for mobile */
+    animation: typing 5s steps(15, end) infinite,
+      blink-caret 0.75s step-end infinite;
+    white-space: normal; /* Allow text to wrap on very small screens */
+  }
 
-.cta-button:hover {
-  background: var(--secondary);
+  .type-line {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem; /* Smaller section titles for mobile */
+  }
+
+  .section {
+    padding: 2rem 1rem; /* Reduced padding for mobile */
+  }
 }
