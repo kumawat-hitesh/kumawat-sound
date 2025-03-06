@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Arial", sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 /* Hero Section */
@@ -15,12 +15,12 @@
   justify-content: center;
   text-align: center;
   color: #ffffff8a;
-  font-family: "Times New Roman", Times, serif;
   padding: 0 20px; /* Added padding for smaller screens */
 }
 
 .hero-content h1 {
   font-size: 4rem;
+  margin-top: 5rem;
   margin-bottom: 3rem;
   overflow: hidden;
   white-space: nowrap;
@@ -58,9 +58,8 @@
 
 /* Fade-in lines */
 .type-line {
-  font-family: "Times New Roman", Times, serif;
-  line-height: 3rem;
-  font-size: 1.5rem;
+  line-height: 2rem;
+  font-size: 1.2rem;
   margin: 1rem 0;
   opacity: 0;
   animation: fadeInUp 1s forwards;
@@ -99,29 +98,55 @@
 
 /* Content Sections */
 .section {
-  padding: 5rem 2rem;
+  padding: 6rem 4rem;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   text-align: center; /* Center-align text for smaller screens */
-}
-
-.section-dark {
-  background: #1a1a1a;
-  color: white;
-}
-
-.section-light {
-  background: #f9f9f9;
-  color: #333;
 }
 
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
+  border-bottom: 2px solid rgb(255, 0, 0);
+}
+
+/* Enhanced Section Styling */
+.section-dark {
+  background: black;
+  color: white;
+  position: relative;
+}
+
+.section-dark::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255, 0, 0, 0.8), transparent);
+}
+
+/* About Us Section Styling */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.5s; /* Sync with hero animations */
+}
+
+.about-content p {
+  margin: 0;
+  color: #ffffffcc;
+  letter-spacing: 0.5px;
 }
 
 /* Responsive Design */
@@ -134,8 +159,19 @@
   }
 
   .type-line {
-    font-size: 1.4rem;
-    line-height: 2.5rem;
+    line-height: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .about-content {
+    max-width: 800px;
+    padding: 30px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .section-dark::after {
+    height: 4px;
   }
 }
 
@@ -148,8 +184,8 @@
   }
 
   .type-line {
-    font-size: 1.3rem;
-    line-height: 2.2rem;
+    line-height: 2rem;
+    font-size: 1rem;
   }
 
   .section-title {
@@ -159,28 +195,58 @@
   .section {
     padding: 4rem 1.5rem; /* Adjusted padding for tablets */
   }
+
+  .about-content {
+    max-width: 90%;
+    padding: 25px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .section-dark::after {
+    height: 3px;
+  }
 }
 
 /* Mobile Devices: max-width 767px */
 @media (max-width: 767px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
   .hero-content h1 {
-    height: 1em; /* Smaller height for mobile */
-    font-size: 1.5rem; /* Smaller for mobile */
-    animation: typing 5s steps(15, end) infinite,
+    height: 0.9em; /* Smaller height for mobile */
+    font-size: 1.4rem; /* Smaller for mobile */
+    animation: typing 6s steps(50, end) infinite,
       blink-caret 0.75s step-end infinite;
     white-space: normal; /* Allow text to wrap on very small screens */
+    margin-top: 8rem;
+    margin-bottom: 7rem;
   }
 
   .type-line {
-    font-size: 0.8rem;
-    line-height: 1rem;
+    font-size: 0.9rem;
+    line-height: 2rem;
   }
 
   .section-title {
-    font-size: 1.8rem; /* Smaller section titles for mobile */
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    margin-bottom: 3rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 2px solid rgb(255, 0, 0);
   }
 
   .section {
-    padding: 2rem 1rem; /* Reduced padding for mobile */
+    padding: 4rem 3rem;
+  }
+
+  .about-content {
+    font-size: 0.9rem;
+    padding: 10px;
   }
 }

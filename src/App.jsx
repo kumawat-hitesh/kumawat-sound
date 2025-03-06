@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components
 import Loader from "./components/loader";
@@ -9,6 +9,13 @@ import Home from "./pages/home";
 
 function App() {
   const [showContent, setShowContent] = useState(false);
+  const homeRef = useRef(null);
+
+  // Function to scroll to the home section
+  const scrollToHome = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    homeRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     // Match this with loader exit animation duration
@@ -22,9 +29,9 @@ function App() {
 
       {showContent && (
         <div className="main-content">
-          <Navbar />
+          <Navbar scrollToHome={scrollToHome} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home homeRef={homeRef} />} />
             {/* Add other routes */}
           </Routes>
           <Footer />

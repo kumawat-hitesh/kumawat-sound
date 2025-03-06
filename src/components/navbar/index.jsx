@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom"; // Use NavLink instead of Link
+import { NavLink } from "react-router-dom";
 import "./style.css";
 import logoImage from "../../assets/kumawat-logo.png";
 
-export default function Navbar() {
+export default function Navbar({ scrollToHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -53,7 +53,15 @@ export default function Navbar() {
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? "active" : "")}
-            onClick={toggleMenu}
+            onClick={(e) => {
+              toggleMenu();
+              if (location.pathname === "/") {
+                // If already on the home page, scroll to the top
+                e.preventDefault();
+                scrollToHome(e);
+              }
+              // If not on the home page, NavLink will handle navigation
+            }}
           >
             Home
           </NavLink>
@@ -86,13 +94,12 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/videos"
-            className={({ isActive }) => (isActive ? "active" : "")}
-            onClick={toggleMenu}
+          <a
+            href="https://www.youtube.com/@kumawatsound/videos"
+            target="_blank"
           >
             Videos
-          </NavLink>
+          </a>
         </li>
         <li>
           <NavLink

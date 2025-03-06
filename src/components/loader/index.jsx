@@ -34,7 +34,7 @@ const Loader = () => {
           alt="Loading..."
           className="loading-gif"
         />
-        <h2>Kumawat Sound</h2>
+        <h1>Kumawat Sound India</h1>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./style.css";
 
-const HomePage = () => {
+const HomePage = ({ homeRef }) => {
   return (
     <div className="container">
-      {/* Hero Section */}
-      <section className="hero">
+      {/* Hero Section with ref */}
+      <section className="hero" ref={homeRef}>
         <div className="hero-content">
           <h1>Welcome To Kumawat Sound India!</h1>
           <div className="type-line">
@@ -29,24 +29,32 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section className="section section-dark">
+        <h2 className="section-title">About Us</h2>
+        <div className="about-content">
+          <p>
+            Since 1971, Kumawat Sound India has been a pioneer in transforming
+            ordinary events into extraordinary experiences through innovative
+            sound and lighting solutions. Specializing in weddings, corporate
+            functions, concerts, and large-scale productions, we combine
+            advanced technology with expert engineering to deliver flawless
+            audiovisual performances. Our offerings include high-quality sound
+            systems for crystal-clear audio, dynamic stage lighting, and custom
+            truss setups tailored to the unique needs of every event. Trust
+            Kumawat Sound India to illuminate your moments with precision,
+            passion, and professionalism. Let’s create magic together!
+          </p>
+        </div>
+      </section>
+
       {/* Customizable Sections */}
       <section className="section section-dark">
         <h2 className="section-title">Our Services</h2>
         {/* Add your content here */}
       </section>
 
-      <section className="section section-light">
-        <h2 className="section-title">Event Portfolio</h2>
-        {/* Add your content here */}
-      </section>
-
       <section className="section section-dark">
-        <h2 className="section-title">Technical Specs</h2>
-        {/* Add your content here */}
-      </section>
-
-      <section className="section section-light">
-        <h2 className="section-title">Contact Us</h2>
+        <h2 className="section-title">Event Portfolio</h2>
         {/* Add your content here */}
       </section>
     </div>
