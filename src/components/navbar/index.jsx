@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
-import logoImage from "../../assets/kumawat-logo.png";
+import logoImage from "../../assets/ks-logo-circle.png";
 
 export default function Navbar({ scrollToHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

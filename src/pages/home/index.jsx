@@ -1,7 +1,18 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const HomePage = ({ homeRef }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const navigate = useNavigate();
+
+  const handleKnowMore = () => {
+    navigate("/about");
+  };
+
   return (
     <div className="container">
       {/* Hero Section with ref */}
@@ -45,17 +56,16 @@ const HomePage = ({ homeRef }) => {
             passion, and professionalism. Let’s create magic together!
           </p>
         </div>
+        <button onClick={handleKnowMore}>Know more</button>
       </section>
 
-      {/* Customizable Sections */}
+      {/* Additional sections */}
       <section className="section section-dark">
         <h2 className="section-title">Our Services</h2>
-        {/* Add your content here */}
       </section>
 
       <section className="section section-dark">
         <h2 className="section-title">Event Portfolio</h2>
-        {/* Add your content here */}
       </section>
     </div>
   );

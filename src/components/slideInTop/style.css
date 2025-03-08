@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* This class adds the initial hidden state and transition */
+.slide-top {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+/* When the element is in view, it will have the scrolled class and trigger the animation */
+.slide-top.scrolled {
+  animation: slide-top 1s ease-in-out both;
+}
+
+/* Keyframes for the slide into top animation */
+@keyframes slide-top {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

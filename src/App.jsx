@@ -6,6 +6,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 // Pages
 import Home from "./pages/home";
+import About from "./pages/about";
 
 function App() {
   const [showContent, setShowContent] = useState(false);
@@ -32,6 +33,7 @@ function App() {
           <Navbar scrollToHome={scrollToHome} />
           <Routes>
             <Route path="/" element={<Home homeRef={homeRef} />} />
+            <Route path="/about" element={<About />} />
             {/* Add other routes */}
           </Routes>
           <Footer />
