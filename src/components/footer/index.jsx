@@ -62,9 +62,22 @@ export default function Footer() {
 
       {/* Copyright Section */}
       <div className="copyright-section">
-        <p>
-          Copyright © 1971 – 2025, Kumawat Sound India. All rights reserved.
-        </p>
+        <div className="copyright">
+          <p>
+            Copyright © 1971 – 2025, Kumawat Sound India. All rights reserved.
+          </p>
+        </div>
+        <div className="designer">
+          <p>
+            Designed & Developed by{" "}
+            <a
+              href="https://hitesh-kumawat-portfolio.vercel.app/"
+              target="_blank"
+            >
+              Hitesh
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
