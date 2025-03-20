@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import audio from "../../assets/service-audio.jpg";
+import lighting from "../../assets/service-lighting.jpg";
 
 const HomePage = ({ homeRef }) => {
   useEffect(() => {
@@ -62,6 +64,32 @@ const HomePage = ({ homeRef }) => {
       {/* Additional sections */}
       <section className="section section-dark">
         <h2 className="section-title">Our Services</h2>
+        <div className="services-container">
+          <div className="service-card">
+            <div className="service-image-container">
+              <img src={audio} alt="Audio Services" className="service-image" />
+            </div>
+            <h3 className="service-title">Audio</h3>
+            <p className="service-description">
+              Professional sound systems for crystal-clear acoustics in any
+              venue
+            </p>
+          </div>
+          <div className="service-card">
+            <div className="service-image-container">
+              <img
+                src={lighting}
+                alt="Visual Services"
+                className="service-image"
+              />
+            </div>
+            <h3 className="service-title">Visual</h3>
+            <p className="service-description">
+              Immersive lighting and video systems for stunning visual
+              experiences
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="section section-dark">
