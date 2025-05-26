@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components
 import Loader from "./components/loader";
+import CustomCursor from "./components/customCursor";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 // Pages
@@ -27,7 +28,7 @@ function App() {
   return (
     <Router>
       <Loader />
-
+      <CustomCursor />
       {showContent && (
         <div className="main-content">
           <Navbar scrollToHome={scrollToHome} />

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./style.css";
+import Counter from "../../components/counter/Counter"; // Make sure to import your Counter component
 
 const AboutPage = ({ aboutRef }) => {
   useEffect(() => {
@@ -26,8 +27,16 @@ const AboutPage = ({ aboutRef }) => {
             systems for crystal-clear audio, dynamic stage lighting, and custom
             truss setups tailored to the unique needs of every event. Trust
             Kumawat Sound India to illuminate your moments with precision,
-            passion, and professionalism. Let’s create magic together!
+            passion, and professionalism. Let's create magic together!
           </p>
+        </div>
+      </section>
+      {/* Add the counter section here */}
+      <section className="counter-section">
+        <div className="numbers">
+          <Counter number={2000} title="Corporate Events" />
+          <Counter number={5000} title="Weeding Events" />
+          <Counter number={1000} title="Live Events" />
         </div>
       </section>
     </div>
